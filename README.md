@@ -1,51 +1,79 @@
-# Empathetic Chatbot
-This is where the empathetic chatbots will be house for CSC 525 and other uses. 
-The primary objectives of this emotionally intelligent chatbot project are:
+# Emotionally Intelligent Chatbot
+This project implements an emotionally intelligent chatbot using GPT-2 and Graph Neural Networks (GNN). The chatbot is designed to engage in open-domain conversations while maintaining context and providing empathetic responses.
+**Features**
 
-1.	To create an open-domain, generative chatbot capable of engaging in natural, free-flowing conversations on a wide range of topics.
-2.	To implement emotional intelligence capabilities, allowing the chatbot to recognize and respond to users' emotional states.
-3.	To demonstrate adaptive control in uncertain environments by dynamically adjusting responses based on emotional and contextual cues.
-4.	To provide users with a more empathetic and supportive chat experience, offering emotional companionship and understanding.
+- Open-domain conversation capabilities using GPT-2
+- Dynamic knowledge graph for context maintenance
+- Graph Neural Network for processing contextual information
+- Basic emotion recognition and sentiment analysis
+- Empathetic response generation
 
-The chatbot will demonstrate adaptive control in uncertain environments through its ability to:
+**Requirements**
 
-1.	Recognize and adapt to varying emotional states of users in real-time.
-2.	Handle unexpected user inputs or topic changes gracefully.
-3.	Adjust its conversational style and content based on the evolving context of the interaction.
-4.	Learn from interactions to improve its empathetic responses over time.
-This adaptive behavior is crucial in the uncertain environment of open-domain conversations, where user inputs, emotions, and conversational directions can be highly unpredictable.
+- Python 3.7+
+- PyTorch
+- PyTorch Geometric
+- Transformers (Hugging Face)
+- NetworkX
+- Scikit-learn
+- SpaCy
+- NumPy
 
-To enable the chatbot to recognize emotions and engage in emotionally-aligned conversations, it will utilize a combination of techniques:
+**Installation**
 
-1.	Sentiment Analysis: The chatbot will leverage natural language processing libraries such as NLTK (Natural Language Toolkit) or SpaCy to identify the overall sentiment (positive, negative, neutral) of the user's messages (Bird et al., 2009; Honnibal et al., 2020). This will provide a high-level understanding of the user's emotional state.
-2.	Emotion Recognition: More nuanced emotion detection will be accomplished using AI models like IBM Watson Tone Analyzer or Hugging Face's emotion-english-distilroberta-base (IBM, 2023; Wolf et al., 2020). These tools will classify specific emotions present in the user's text, such as joy, sadness, anger, or fear, enabling a more detailed understanding of the user's feelings.
-3.	Contextual Cues Analysis: The chatbot will analyze patterns and cues in the conversation context, including the use of emoticons, punctuation (e.g., "!!!"), strong emotional phrases (e.g., "I feel so lonely"), or sharp topic changes that may indicate an emotional state. This analysis will look at the wider context beyond just the immediate message.
-4.	Empathetic Response Generation: The language model will be fine-tuned on an empathy-rich dialog dataset. Techniques such as Emotion Embedding, Affect-Driven Dialog, and Reinforcement Learning will be employed to incentivize emotionally appropriate and empathetic responses tailored to the user's emotional state.
+- Clone this repository:
+    - Copygit clone https://github.com/crashidian/Emotionally-Intelligent-Chatbot.git
 
-The following tools and libraries will be utilized in the development of the empathetic chatbot:
+    - cd emotionally-intelligent-chatbot
 
-1.	Language Model: OpenAI's GPT-3 (davinci model) or GPT-4 when released (OpenAI, 2023)
-2.	Model Fine-Tuning: HuggingFace Transformers library (Wolf et al., 2020)
-3.	Conversational Framework: Rasa Framework (Bocklisch et al., 2017)
-4.	Sentiment Analysis: NLTK's VADER or IBM Watson (Bird et al., 2009; IBM, 2023)
-5.	Emotion Recognition: Hugging Face's Distilroberta emotion model (Wolf et al., 2020)
-6.	Reinforcement Learning: Deep Q-Learning, ParlAI (Miller et al., 2017)
-7.	Front-End: Python Dash or custom web app (Plotly, 2023)
+- Install the required packages:
+    - Copypip install torch torch_geometric transformers networkx scikit-learn spacy numpy
 
-The chatbot program will be structured as follows:
+- Download the SpaCy English language model:
+    - Copypython -m spacy download en_core_web_sm
 
-1.	User Interface Module: This will handle the front-end interaction with the user, likely implemented using Python Dash or a custom web application.
-2.	Natural Language Understanding (NLU) Module: This module will process user inputs, leveraging the sentiment analysis and emotion recognition components to understand the user's emotional state and intent.
-3.	Dialog Management Module: This will handle the flow of the conversation, keeping track of context and managing the overall interaction.
-4.	Emotional Intelligence Module: This core component will integrate the sentiment analysis, emotion recognition, and contextual cue analysis to build a comprehensive understanding of the user's emotional state.
-5.	Response Generation Module: This module will use the fine-tuned language model to generate empathetic responses based on the user's input, emotional state, and conversation context.
-6.	Learning Module: Implementing reinforcement learning techniques, this module will allow the chatbot to learn and improve its empathetic responses over time.
-7.	Integration Module: This will handle the integration of all components and manage the flow of information between modules.
 
-The chatbot's adaptive control capabilities will be demonstrated through its ability to:
+**Usage**
+- Run the chatbot script:
+    - Copypython emotionallyintelligentchatbot.ipynb
+- Interact with the chatbot via the command line. Type your messages and press Enter to send. The chatbot will respond with generated replies. To end the conversation, type 'quit', 'exit', or 'bye'.
 
-1.	Emotional State Adaptation: By utilizing sentiment analysis and emotion recognition, the chatbot will adapt its responses to match the user's emotional state. For instance, if a user expresses sadness, the chatbot will respond with empathy and support, while it might share in the excitement if the user expresses joy.
-2.	Contextual Understanding: The chatbot will analyze contextual cues to better understand the user's state of mind. This includes recognizing the use of emoticons, punctuation, and emotional phrases to gauge the underlying emotions that might not be explicitly stated.
-3.	Dynamic Response Generation: Using the fine-tuned language model, the chatbot will generate responses that are not only contextually appropriate but also emotionally aligned with the user's state. This goes beyond simple template-based responses, allowing for more natural and empathetic interactions.
-4.	Continuous Learning: Through reinforcement learning techniques, the chatbot will learn from its interactions, continuously improving its ability to provide emotionally appropriate responses. This adaptive learning process will allow the chatbot to handle an increasingly diverse range of emotional scenarios over time.
-5.	Topic Flexibility: As an open-domain chatbot, it will be able to adapt to sudden changes in conversation topics, maintaining emotional intelligence across a wide range of subjects.
+**How It Works**
+
+- The chatbot uses GPT-2 for natural language understanding and generation.
+- A knowledge graph is maintained and updated during the conversation to keep track of context.
+- A Graph Neural Network processes the knowledge graph to enhance contextual understanding.
+- Basic emotion recognition is performed using keyword matching and SpaCy's sentiment analysis.
+- The chatbot generates empathetic responses based on the detected emotion and conversation context.
+
+**Limitations**
+
+- The emotion recognition system is basic and may not capture complex or subtle emotions.
+- The chatbot's knowledge is limited to its pre-training and the current conversation context.
+- No long-term memory between separate runs of the script.
+
+**Future Improvements**
+
+- Enhance the emotion recognition system with more advanced NLP techniques.
+- Implement fine-tuning of the GPT-2 model on empathetic datasets.
+- Add more sophisticated reinforcement learning for improved adaptability.
+- Develop a user interface for easier interaction.
+
+**Contributing**
+
+- Contributions to improve the chatbot are welcome. Please feel free to submit a Pull Request.
+
+**License**
+
+- This project is licensed under the MIT License - see the LICENSE file for details.
+
+**Acknowledgments**
+
+- OpenAI for the GPT-2 model
+- PyTorch team for the deep learning framework
+- Hugging Face for the Transformers library
+- PyTorch Geometric team for GNN implementations
+
+**Contact**
+
+For any queries, please e-mail me at crashid@purdue.edu.
